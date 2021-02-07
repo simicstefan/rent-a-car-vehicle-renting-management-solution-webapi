@@ -39,6 +39,41 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.CountriesController.GetCountries">
+            <summary>
+            Shows all countries
+            </summary>
+            <returns>List of all countries</returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.CountriesController.GetCountry(System.Int32)">
+            <summary>
+            Shows a country by id
+            </summary>
+            <param name="id"></param>
+            <returns>One country</returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.CountriesController.Create(rent_a_car_vehicle_renting_management_solution_webapi.DTOs.CountryCreateDTO)">
+            <summary>
+            Creates a country
+            </summary>
+            <param name="countryDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.CountriesController.Update(System.Int32,rent_a_car_vehicle_renting_management_solution_webapi.DTOs.CountryUpdateDTO)">
+            <summary>
+            Updates a country
+            </summary>
+            <param name="id"></param>
+            <param name="countryDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.CountriesController.Delete(System.Int32)">
+            <summary>
+            Deletes a country
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.ReservationsController.GetReservations">
             <summary>
             Shows all reservations
@@ -72,6 +107,13 @@
             Deletes reservation
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapi.Controllers.UsersController.Login(rent_a_car_vehicle_renting_management_solution_webapi.DTOs.UserDTO)">
+            <summary>
+            User login endpoint
+            </summary>
+            <param name="userDTO"></param>
             <returns></returns>
         </member>
         <member name="M:rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers.ClientsController.GetClients">

@@ -23,6 +23,9 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Mappings
             CreateMap<City, CityDTO>().ReverseMap();
             CreateMap<City, CityCreateDTO>().ReverseMap();
             CreateMap<City, CityUpdateDTO>().ReverseMap();
+            CreateMap<Country, CountryDTO>().ReverseMap();
+            CreateMap<Country, CountryCreateDTO>().ReverseMap();
+            CreateMap<Country, CountryUpdateDTO>().ReverseMap();
         }
     }
 }

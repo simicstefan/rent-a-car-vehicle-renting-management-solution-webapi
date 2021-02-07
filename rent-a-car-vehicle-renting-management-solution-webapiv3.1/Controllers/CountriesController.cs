@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using rent_a_car_vehicle_renting_management_solution_webapi.Contracts;
@@ -10,19 +9,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
+namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientsController : ControllerBase
+    public class CountriesController : ControllerBase
     {
-        private readonly IClientRepository _clientRepository;
+        private readonly ICountryRepository _countryRepository;
         private readonly IMapper _mapper;
 
-        public ClientsController(IClientRepository clientRepository,
+        public CountriesController(ICountryRepository countryRepository,
             IMapper mapper)
         {
-            _clientRepository = clientRepository;
+            _countryRepository = countryRepository;
             _mapper = mapper;
         }
 
@@ -32,18 +31,18 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
         }
 
         /// <summary>
-        /// Shows all clients
+        /// Shows all countries
         /// </summary>
-        /// <returns>List of all clients</returns>
+        /// <returns>List of all countries</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetClients()
+        public async Task<IActionResult> GetCountries()
         {
             try
             {
-                var clients = await _clientRepository.FindAll();
-                var response = _mapper.Map<IList<ClientDTO>>(clients);
+                var countries = await _countryRepository.FindAll();
+                var response = _mapper.Map<IList<CountryDTO>>(countries);
                 return Ok(response);
             }
             catch (Exception e)
@@ -53,24 +52,24 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
         }
 
         /// <summary>
-        /// Shows a client by id
+        /// Shows a country by id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>One client</returns>
+        /// <returns>One country</returns>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetClient(int id)
+        public async Task<IActionResult> GetCountry(int id)
         {
             try
             {
-                var author = await _clientRepository.FindById(id);
-                if (author == null)
+                var country = await _countryRepository.FindById(id);
+                if (country == null)
                 {
                     return NotFound();
                 }
-                var response = _mapper.Map<ClientDTO>(author);
+                var response = _mapper.Map<CountryDTO>(country);
                 return Ok(response);
             }
             catch (Exception e)
@@ -80,19 +79,19 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
         }
 
         /// <summary>
-        /// Creates a client
+        /// Creates a country
         /// </summary>
-        /// <param name="clientDTO"></param>
+        /// <param name="countryDTO"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Create([FromBody] ClientCreateDTO clientDTO)
+        public async Task<IActionResult> Create([FromBody] CountryCreateDTO countryDTO)
         {
             try
             {
-                if (clientDTO == null)
+                if (countryDTO == null)
                 {
                     return BadRequest(ModelState);
                 }
@@ -100,13 +99,13 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                var client = _mapper.Map<Client>(clientDTO);
-                var isSuccess = await _clientRepository.Create(client);
-                if(!isSuccess)
+                var country = _mapper.Map<Country>(countryDTO);
+                var isSuccess = await _countryRepository.Create(country);
+                if (!isSuccess)
                 {
-                    return InternalError($"Client creation failed");
+                    return InternalError($"Creation failed");
                 }
-                return Created("Create", new { client });
+                return Created("Create", new { country });
             }
             catch (Exception e)
             {
@@ -115,25 +114,25 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
         }
 
         /// <summary>
-        /// Updates a client
+        /// Updates a country
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="clientDTO"></param>
+        /// <param name="countryDTO"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(int id, [FromBody] ClientUpdateDTO clientDTO)
+        public async Task<IActionResult> Update(int id, [FromBody] CountryUpdateDTO countryDTO)
         {
             try
             {
-                if (id < 1 || clientDTO == null || id != clientDTO.IDClient)
+                if (id < 1 || countryDTO == null || id != countryDTO.IDCountry)
                 {
                     return BadRequest();
                 }
 
-                var isExists = await _clientRepository.isExists(id);
+                var isExists = await _countryRepository.isExists(id);
                 if (!isExists)
                 {
                     return NotFound();
@@ -143,8 +142,8 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                var client = _mapper.Map<Client>(clientDTO);
-                var isSuccess = await _clientRepository.Update(client);
+                var country = _mapper.Map<Country>(countryDTO);
+                var isSuccess = await _countryRepository.Update(country);
                 if (!isSuccess)
                 {
                     return InternalError($"Update operation failed.");
@@ -158,7 +157,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
         }
 
         /// <summary>
-        /// Deletes a client
+        /// Deletes a country
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -175,17 +174,17 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
                     return BadRequest();
                 }
 
-                var isExists = await _clientRepository.isExists(id);
+                var isExists = await _countryRepository.isExists(id);
                 if (!isExists)
                 {
                     return NotFound();
                 }
 
-                var client = await _clientRepository.FindById(id);
-                var isSuccess = await _clientRepository.Delete(client);
+                var country = await _countryRepository.FindById(id);
+                var isSuccess = await _countryRepository.Delete(country);
                 if (!isSuccess)
                 {
-                    return InternalError($"Author delete failed");
+                    return InternalError($"Delete operation failed");
                 }
                 return NoContent();
             }
@@ -194,6 +193,5 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers
                 return InternalError($"{e.Message} - {e.InnerException}");
             }
         }
-
     }
 }

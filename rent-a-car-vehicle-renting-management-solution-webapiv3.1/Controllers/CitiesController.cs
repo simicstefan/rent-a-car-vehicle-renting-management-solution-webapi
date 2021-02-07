@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using rent_a_car_vehicle_renting_management_solution_webapi.Contracts;
@@ -84,6 +85,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
         /// <param name="cityDTO"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -120,6 +122,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
         /// <param name="cityDTO"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -162,6 +165,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
