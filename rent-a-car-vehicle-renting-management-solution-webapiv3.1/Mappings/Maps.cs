@@ -20,6 +20,9 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Mappings
             CreateMap<Reservation, ReservationDTO>().ReverseMap();
             CreateMap<Reservation, ReservationCreateDTO>().ReverseMap();
             CreateMap<Reservation, ReservationUpdateDTO>().ReverseMap();
+            CreateMap<City, CityDTO>().ReverseMap();
+            CreateMap<City, CityCreateDTO>().ReverseMap();
+            CreateMap<City, CityUpdateDTO>().ReverseMap();
         }
     }
 }

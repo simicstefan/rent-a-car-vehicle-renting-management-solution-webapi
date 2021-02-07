@@ -67,6 +67,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1
 
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<ICityRepository, CityRepository>();
 
             services.AddControllers();
         }
