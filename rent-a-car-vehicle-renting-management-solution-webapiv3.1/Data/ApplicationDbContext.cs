@@ -13,6 +13,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Document> Documents { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
