@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>rent-a-car-vehicle-renting-management-solution-webapiv3.1</name>
+    </assembly>
+    <members>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers.ClientsController.GetClients">
+            <summary>
+            Shows all clients
+            </summary>
+            <returns>List of all clients</returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers.ClientsController.GetAuthor(System.Int32)">
+            <summary>
+            Shows a client by id
+            </summary>
+            <param name="id"></param>
+            <returns>One client</returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers.ClientsController.Create(rent_a_car_vehicle_renting_management_solution_webapi.DTOs.ClientCreateDTO)">
+            <summary>
+            Creates a client
+            </summary>
+            <param name="clientDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers.ClientsController.Update(System.Int32,rent_a_car_vehicle_renting_management_solution_webapi.DTOs.ClientUpdateDTO)">
+            <summary>
+            Updates a client
+            </summary>
+            <param name="id"></param>
+            <param name="clientDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:rent_a_car_vehicle_renting_management_solution_webapiv3._1.Controllers.ClientsController.Delete(System.Int32)">
+            <summary>
+            Deletes a client
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
