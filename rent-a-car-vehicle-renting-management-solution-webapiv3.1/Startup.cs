@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using rent_a_car_vehicle_renting_management_solution_webapi;
 using rent_a_car_vehicle_renting_management_solution_webapi.Contracts;
 using rent_a_car_vehicle_renting_management_solution_webapi.Data;
 using rent_a_car_vehicle_renting_management_solution_webapi.Mappings;
@@ -91,6 +92,14 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<IHirePointRepository, HirePointRepository>();
+            services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
+            services.AddScoped<IModelRepository, ModelRepository>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IPickupRepository, PickupRepository>();
+            services.AddScoped<ITransmissionRepository, TransmissionRepository>();
+            services.AddScoped<IServiceNotificationRepository, ServiceNotificationRepository>();
 
             services.AddControllers();
         }

@@ -146,7 +146,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
                 var isSuccess = await _countryRepository.Update(country);
                 if (!isSuccess)
                 {
-                    return InternalError($"Update operation failed.");
+                    return InternalError($"Update failed.");
                 }
                 return NoContent();
             }

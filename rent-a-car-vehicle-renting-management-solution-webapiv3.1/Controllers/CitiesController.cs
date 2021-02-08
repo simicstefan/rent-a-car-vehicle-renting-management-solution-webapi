@@ -85,7 +85,6 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
         /// <param name="cityDTO"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -105,7 +104,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
                 var isSuccess = await _cityRepository.Create(city);
                 if (!isSuccess)
                 {
-                    return InternalError($"City creation failed");
+                    return InternalError($"Creation failed");
                 }
                 return Created("Create", new { city });
             }
@@ -122,7 +121,6 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
         /// <param name="cityDTO"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -149,7 +147,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
                 var isSuccess = await _cityRepository.Update(city);
                 if (!isSuccess)
                 {
-                    return InternalError($"Update operation failed.");
+                    return InternalError($"Update failed.");
                 }
                 return NoContent();
             }
@@ -165,7 +163,6 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -104,7 +104,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
                 var isSuccess = await _reservationRepository.Create(reservation);
                 if (!isSuccess)
                 {
-                    return InternalError($"Reservation creation failed");
+                    return InternalError($"Creation failed");
                 }
                 return Created("Create", new { reservation });
             }
@@ -147,7 +147,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
                 var isSuccess = await _reservationRepository.Update(reservation);
                 if (!isSuccess)
                 {
-                    return InternalError($"Update operation failed.");
+                    return InternalError($"Update failed.");
                 }
                 return NoContent();
             }
@@ -185,7 +185,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Controllers
                 var isSuccess = await _reservationRepository.Delete(reservation);
                 if (!isSuccess)
                 {
-                    return InternalError($"Reservation delete failed");
+                    return InternalError($"Deletion failed");
                 }
                 return NoContent();
             }
