@@ -48,9 +48,12 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi
         public int IDUser_update { get; set; }
         [Required]
         public DateTime DateTime_update { get; set; }
+        [Required]
+        public int KilometerStart { get; set; }
+        public int KilometerEnd { get; set; }
     }
 
-        public class PickupUpdateDTO
+    public class PickupUpdateDTO
     {
         [Required]
         public int IDPickup { get; set; }

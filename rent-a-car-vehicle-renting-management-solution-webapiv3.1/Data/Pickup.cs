@@ -9,7 +9,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi
     {
         [Key]
         public int IDPickup { get; set; }
-        public int IDReservation { get; set; }
+        public int? IDReservation { get; set; }
         public int IDClient { get; set; }
         public int IDVehicle { get; set; }
         public DateTime PickupStart { get; set; }

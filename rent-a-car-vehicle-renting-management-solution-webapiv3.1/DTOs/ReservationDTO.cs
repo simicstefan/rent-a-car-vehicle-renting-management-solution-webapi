@@ -31,7 +31,6 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1.DTOs
         public int IDVehicle { get; set; }
         [Required]
         public int IDHirePointStart { get; set; }
-        [Required]
         public int IDHirePointEnd { get; set; }
         [Required]
         public DateTime ReservationStart { get; set; }

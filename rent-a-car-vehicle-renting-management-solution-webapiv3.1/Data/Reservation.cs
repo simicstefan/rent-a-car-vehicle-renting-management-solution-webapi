@@ -15,7 +15,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi.Data
         public int IDClient { get; set; }
         public int IDVehicle { get; set; }
         public int IDHirePointStart { get; set; }
-        public int IDHirePointEnd { get; set; }
+        public int? IDHirePointEnd { get; set; }
         public DateTime ReservationStart { get; set; }
         public DateTime ReservationEnd { get; set; }
         public decimal Price { get; set; }
