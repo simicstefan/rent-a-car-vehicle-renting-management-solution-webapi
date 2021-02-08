@@ -23,6 +23,6 @@ namespace rent_a_car_vehicle_renting_management_solution_webapi
         public int IDUser_update { get; set; }
         public DateTime DateTime_update { get; set; }
         public int KilometerStart { get; set; }
-        public int KilometerEnd { get; set; }
+        public int? KilometerEnd { get; set; }
     }
 }

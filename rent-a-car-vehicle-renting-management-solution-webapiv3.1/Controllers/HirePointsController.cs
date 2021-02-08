@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace rent_a_car_vehicle_renting_management_solution_webapi
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class HirePointsController : ControllerBase
     {
         private readonly IHirePointRepository _hirePointRepository;
