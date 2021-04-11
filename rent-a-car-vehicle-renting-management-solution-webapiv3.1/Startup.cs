@@ -84,7 +84,7 @@ namespace rent_a_car_vehicle_renting_management_solution_webapiv3._1
 
                 var xfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xpath = Path.Combine(AppContext.BaseDirectory, xfile);
-                c.IncludeXmlComments(xpath);
+                //c.IncludeXmlComments(xpath);
             });
 
             services.AddScoped<IClientRepository, ClientRepository>();
